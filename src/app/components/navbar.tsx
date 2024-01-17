@@ -26,11 +26,11 @@ const NAV_ITEMS: Array<NavItem> = [
   },
   {
     label: "Donaciones",
-    page: "/donaciones",
+    page: "/donacion",
   },
   {
     label: "Noticias",
-    page: "/noticias",
+    page: "/post",
   },
   {
     label: "Contacto",
