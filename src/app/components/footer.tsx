@@ -11,8 +11,8 @@ const Footer = () => {
         <nav className="mt-4 grid grid-cols-1 justify-between gap-4 p-4 text-lg sm:grid-flow-col sm:gap-4">
           <Link href={"/consejo"}>El consejo</Link>
           <Link href={"/project"}>Proyectos</Link>
-          <Link href={"/donaciones"}>Donaciones</Link>
-          <Link href={"/noticias"}>Noticias</Link>
+          <Link href={"/donacion"}>Donaciones</Link>
+          <Link href={"/post"}>Noticias</Link>
           <Link href={"/contact"}>Contacto</Link>
         </nav>
         {/*Social media links */}
