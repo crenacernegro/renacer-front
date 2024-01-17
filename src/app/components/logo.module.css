@@ -1,0 +1,16 @@
+.imgDark {
+    display: none;
+  }
+
+@media (prefers-color-scheme: dark) {
+    .imgLight {
+      display: none;
+      width: 80px;
+      height: 80px;
+    }
+    .imgDark {
+      display: unset;
+      width: 80px;
+      height: 80px;
+    }
+}
