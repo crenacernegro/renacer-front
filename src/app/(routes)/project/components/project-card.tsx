@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 
 import type { Project } from "@/../types";
+import { Button } from "@/components/ui/button";
 interface ProjectCard {
   data: Project;
 }
@@ -34,6 +35,9 @@ const ProjectCard: React.FC<ProjectCard> = ({ data }) => {
       <div>
         <p className="text-lg font-semibold">{data.name}</p>
       </div>
+      <Button className="w-full " onClick={handleClick} variant="secondary">
+        Ver projecto
+      </Button>
     </div>
   );
 };

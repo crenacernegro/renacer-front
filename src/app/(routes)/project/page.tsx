@@ -9,7 +9,7 @@ export default async function ProjectsPage() {
   return (
     <Container>
       <div className="mb-4 mt-24 flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-        <ProjectList title="Featured Projects" items={projects} />
+        <ProjectList title="Nuestros proyectos" items={projects} />
       </div>
     </Container>
   );

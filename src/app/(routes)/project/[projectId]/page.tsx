@@ -14,7 +14,6 @@ interface ProjectPageProps {
 
 const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   const project = await getProject(params.projectId);
-  const suggestedProjects = await getProjects();
 
   if (!project) {
     return null;
@@ -22,12 +21,11 @@ const ProjectPage: React.FC<ProjectPageProps> = async ({ params }) => {
   return (
     <div className="bg-white">
       <Container>
+        <h2 className="text-2xl ml-8">Imágenes del projecto</h2>
         <div className="px-4 py-10 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-x-8">
             <Gallery images={project.images} />
           </div>
-          <hr className="my-10" />
-          <ProjectList title="Related Items" items={suggestedProjects} />
         </div>
       </Container>
     </div>
