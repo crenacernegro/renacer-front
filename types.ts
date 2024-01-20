@@ -1,3 +1,10 @@
+export interface Store {
+  id: string;
+  name: string;
+  phone: string;
+  address: string;
+  email: string;
+}
 export interface Project {
   id: string;
   name: string;

@@ -10,12 +10,12 @@ const ContactForm = () => {
   return (
     <div>
       <div>
-        <h2 className="text-2xl font-semibold">
+        <h2 className="text-xl font-bold text-lime-950">
           Envíanos un mensaje y pronto nos pondremos en contacto contigo.
         </h2>
       </div>
       <form
-        className="mt-10 flex flex-col dark:text-black border border-gray-500 rounded-lg p-2 w-full"
+        className=" flex flex-col dark:text-black rounded-lg w-full"
         action={async (formData) => {
           const { data, error } = await sendEmail(formData);
 
@@ -27,24 +27,26 @@ const ContactForm = () => {
           toast.success("Correo enviado, muchas gracias!");
         }}
       >
-        <p>Correo</p>
+        <p className="font-semibold mb-4 mt-4">Correo</p>
         <input
-          className="h-14 p-4 rounded-lg border border-gray-500 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="bg-lime-100 h-14 p-4 rounded-lg border border-gray-500 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           name="senderEmail"
           type="email"
           required
           maxLength={500}
           placeholder="tu correo"
         />
-        <p>Mensaje</p>
+        <p className="mt-4 font-semibold">Mensaje</p>
         <textarea
-          className="h-52 my-3 rounded-lg border border-gray-500 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
+          className="bg-lime-100 mb-4 h-40 my-3 rounded-lg border border-gray-500 p-4 dark:bg-white dark:bg-opacity-80 dark:focus:bg-opacity-100 transition-all dark:outline-none"
           name="message"
           placeholder="tu mensaje"
           required
           maxLength={5000}
         />
-        <SubmitBtn />
+        <div className="flex justify-center items-center">
+          <SubmitBtn />
+        </div>
       </form>
     </div>
   );

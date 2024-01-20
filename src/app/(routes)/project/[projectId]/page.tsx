@@ -1,9 +1,7 @@
 import getProject from "../../../../actions/get-project";
-import getProjects from "../../../../actions/get-projects";
 
 import Container from "../../../components/ui/container";
 import Gallery from "../../../components/gallery";
-import ProjectList from "../components/project-list";
 
 export const revalidate = 0;
 interface ProjectPageProps {
