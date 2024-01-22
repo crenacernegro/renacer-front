@@ -21,7 +21,7 @@ const PostPage: React.FC<PostPageProps> = async ({ params }) => {
         <div className="p-0 mb-80">
           <div className="w-full flex mt-20">
             <Image
-              src={post.images[0].url}
+              src={post.imageUrl}
               alt={post.title}
               width={1280}
               height={720}
