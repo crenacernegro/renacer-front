@@ -7,10 +7,12 @@ export const revalidate = 0;
 export default async function ProjectsPage() {
   const projects = await getProjects();
   return (
-    <Container>
-      <div className="mb-4 mt-24 flex flex-col gap-y-8 px-4 sm:px-6 lg:px-8">
-        <ProjectList title="Nuestros proyectos" items={projects} />
-      </div>
-    </Container>
+    <>
+      <Container>
+        <div className="mb-4 mt-24 grid grid-cols-1 gap-4 p-8">
+          <ProjectList title="Nuestros proyectos" items={projects} />
+        </div>
+      </Container>
+    </>
   );
 }
