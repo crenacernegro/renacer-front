@@ -13,6 +13,7 @@ import {
   WhatsappIcon,
   EmailIcon,
 } from "react-share";
+import { Separator } from "@/components/ui/separator";
 
 interface PostCard {
   data: Post;
@@ -41,7 +42,11 @@ const PostCard: React.FC<PostCard> = ({ data }) => {
         </div>
         {/* Description */}
         <div className="relative">
-          <p className="text-lg font-semibold mb-2">{data.title}</p>
+          <p className="text-sm font-bold mb-2 absolute bottom-20 ml-2 text-lime-100">
+            {data.title}
+          </p>
+          <p>{}</p>
+          <Separator className="absolute bottom-20 w-2/3 ml-2" />
           <div>
             <FacebookShareButton
               url={CurrentPageUrl}
