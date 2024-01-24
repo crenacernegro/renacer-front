@@ -25,7 +25,7 @@ const PostCard: React.FC<PostCard> = ({ data }) => {
   const handleClick = () => {
     router.push(`/post/${data?.id}`);
   };
-  const CurrentPageUrl = "https://renacer-front.vercel.app/post";
+  const CurrentPageUrl = window.location.href;
 
   return (
     <>
