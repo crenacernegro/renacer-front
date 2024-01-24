@@ -12,6 +12,7 @@ export default async function ProjectsPage() {
         <div className="mb-4 mt-24 grid grid-cols-1 gap-4 p-8">
           <PostList title="Noticias del consejo" items={posts} />
         </div>
+        
       </Container>
     </>
   );

@@ -1,5 +1,6 @@
 import getPost from "../../../../actions/get-post";
 import Container from "../../../components/ui/container";
+import { format } from "date-fns/format";
 import Image from "next/image";
 
 export const revalidate = 0;
@@ -11,6 +12,7 @@ interface PostPageProps {
 
 const PostPage: React.FC<PostPageProps> = async ({ params }) => {
   const post = await getPost(params.postId);
+  const dateformatted = format(new Date(post.createdAt), "dd/MM/yyyy");
 
   if (!post) {
     return null;
@@ -18,23 +20,24 @@ const PostPage: React.FC<PostPageProps> = async ({ params }) => {
   return (
     <div className="bg-white">
       <Container>
-        <div className="p-0 mb-80">
-          <div className="w-full flex mt-20">
-            <Image
-              src={post.imageUrl}
-              alt={post.title}
-              width={1280}
-              height={720}
-              layout="responsive"
-              objectFit="cover"
-            />
-          </div>
-          <div className="absolute h-80 w-3/4 ml-12 bg-lime-100 -mt-16 rounded-xl md:-mt-48">
-            <div className="ml-4 text-lime-950 text-md font-bold p-4 text-center md:text-lg">
-              <p className="md:text-2xl">{post.title}</p>
-            </div>
-            <div className="ml-4 text-sm p-4">{post.content}</div>
-          </div>
+        <div className="mt-28 text-black w-2/3 ml-8">
+          <h3 className="mb-4">{dateformatted}</h3>
+          <h1 className="font-bold text-3xl">{post.title}</h1>
+          <div
+            className="mt-4"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
+        </div>
+        <Image
+          src={post.imageUrl}
+          alt={post.title}
+          width={400}
+          height={400}
+          className="mt-8 p-4 m-4 w-full ml-2 border-2 rounded-xl m"
+          objectFit="responsive"
+        />
+        <div className="mt-22">
+          <h1 className="ml-8 font-semibold">Entradas recientes</h1>
         </div>
       </Container>
     </div>
