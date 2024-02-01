@@ -1,7 +1,10 @@
+import Slideshow from "../components/slider";
+import Container from "../components/ui/container";
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <h1>Renacer app</h1>
-    </main>
+    <Container>
+      <Slideshow />
+    </Container>
   );
 }
