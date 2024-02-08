@@ -33,7 +33,7 @@ const Slideshow = () => {
     ),
   };
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full -mb-80">
       <Zoom {...zoomInProperties}>
         {images.map((each, index) => (
           <div
