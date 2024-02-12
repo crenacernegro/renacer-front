@@ -16,10 +16,7 @@ const NAV_ITEMS: Array<NavItem> = [
     label: "Inicio",
     page: "/",
   },
-  {
-    label: "El consejo",
-    page: "/consejo",
-  },
+
   {
     label: "Proyectos",
     page: "/project",
@@ -31,6 +28,10 @@ const NAV_ITEMS: Array<NavItem> = [
   {
     label: "Noticias",
     page: "/post",
+  },
+  {
+    label: "Trabaja con nosotros",
+    page: "/jobs",
   },
   {
     label: "Contacto",

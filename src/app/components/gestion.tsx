@@ -8,7 +8,7 @@ const GestionPage = () => {
         Quienes somos
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 mt-8">
-        <p className="p-8 text-justify text-2xl">
+        <p className="p-8 text-justify text-xl">
           El consejo comunitario Renacer Negro está ubicado entre las
           comunidades de Cheté y Coteje, en el municipio de Timbiquí,
           departamento del Cauca.
