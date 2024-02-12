@@ -174,8 +174,8 @@ export function JobsForm() {
             />
           )}
         </div>
-        <div className="mt-4 flex items-center justify-center">
-          <Button>Enviar</Button>
+        <div className="mt-4 flex items-center justify-center ">
+          <Button className="bg-lime-950">Enviar</Button>
         </div>
       </form>
     </Form>

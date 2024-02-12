@@ -6,7 +6,7 @@ import React, { useState } from "react";
 const JobsPage = () => {
   return (
     <div className="mt-24">
-      <h1 className="flex text-bold text-4xl items-center justify-center p-4 text-lime-950">
+      <h1 className="flex text-bold text-4xl items-center justify-center p-4 text-lime-950 ml-16">
         Trabaje con nosotros
       </h1>
       <p className="w-2/3 mx-auto text-md p-4">
