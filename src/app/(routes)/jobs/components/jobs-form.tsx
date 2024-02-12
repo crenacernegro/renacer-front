@@ -17,7 +17,29 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import { useState } from "react";
+import { CSSProperties, useState } from "react";
+import { Button } from "@/components/ui/button";
+
+type ButtonCallbackArguments = {
+  ready: boolean;
+  isUploading: boolean;
+  uploadProgress: number;
+  fileTypes: string[];
+};
+
+type StyleField =
+  | string
+  | CSSProperties
+  | ((args: ButtonCallbackArguments) => string | CSSProperties);
+
+type UploadButtonProps = {
+  /* rest of props */
+  appearance?: {
+    container?: StyleField;
+    button?: StyleField;
+    allowedContent?: StyleField;
+  };
+};
 
 const formSchema = z.object({
   candidatename: z.string().min(2, {
@@ -37,8 +59,7 @@ export function JobsForm() {
   });
   const [pdfUrl, setPdfUrl] = useState("");
 
-  async function onSubmit(data) {
-    data.pdfUrl = pdfUrl;
+  async function onSubmit(data: z.infer<typeof formSchema>) {
     console.log(data);
   }
 
@@ -115,7 +136,32 @@ export function JobsForm() {
             </a>
           ) : (
             <UploadButton
-              endpoint="imageUploader"
+              appearance={{
+                container: {
+                  padding: "1rem",
+                  border: "2px dashed #E5E7EB",
+                  borderRadius: "0.5rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  cursor: "pointer",
+                },
+                button: {
+                  padding: "0.5rem 1rem",
+                  border: "2px solid #E5E7EB",
+                  borderRadius: "0.5rem",
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  cursor: "pointer",
+                },
+                allowedContent: {
+                  fontSize: "0.75rem",
+                  color: "#9CA3AF",
+                  textAlign: "center",
+                },
+              }}
+              endpoint="pdfUploader"
               onClientUploadComplete={(res) => {
                 // Do something with the response
                 console.log("Files: ", res);
@@ -127,6 +173,9 @@ export function JobsForm() {
               }}
             />
           )}
+        </div>
+        <div className="mt-4 flex items-center justify-center">
+          <Button>Enviar</Button>
         </div>
       </form>
     </Form>
