@@ -3,18 +3,21 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { UploadButton, UploadDropzone } from "../../../../utils/uploadthing";
 
-import { Button } from "@/components/ui/button";
+import { FileText, Pencil, Plus } from "lucide-react";
+
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+
+import { useState } from "react";
 
 const formSchema = z.object({
   candidatename: z.string().min(2, {
@@ -32,8 +35,12 @@ export function JobsForm() {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
   });
+  const [pdfUrl, setPdfUrl] = useState("");
 
-  const onSubmit = () => {};
+  async function onSubmit(data) {
+    data.pdfUrl = pdfUrl;
+    console.log(data);
+  }
 
   return (
     <Form {...form}>
@@ -83,9 +90,44 @@ export function JobsForm() {
             </FormItem>
           )}
         />
-        <Button type="submit" className="mt-8">
-          Enviar
-        </Button>
+        <p className="mt-4 font-bold">Adjuntar hoja de vida</p>
+        <div className="col-span-full">
+          <div className="flex justify-between items-center mb-4">
+            {pdfUrl && (
+              <button
+                onClick={() => setPdfUrl("")}
+                type="button"
+                className="flex space-x-2  bg-slate-900 rounded-md shadow text-slate-50  py-2 px-4"
+              >
+                <Pencil className="w-5 h-5" />
+                <span>Change PDF</span>
+              </button>
+            )}
+          </div>
+          {pdfUrl ? (
+            <a
+              className="flex space-x-3 items-center text-purple-600"
+              target="_blank"
+              href={pdfUrl}
+            >
+              <FileText />
+              <span>View PDF</span>
+            </a>
+          ) : (
+            <UploadButton
+              endpoint="imageUploader"
+              onClientUploadComplete={(res) => {
+                // Do something with the response
+                console.log("Files: ", res);
+                alert("Upload Completed");
+              }}
+              onUploadError={(error: Error) => {
+                // Do something with the error.
+                alert(`ERROR! ${error.message}`);
+              }}
+            />
+          )}
+        </div>
       </form>
     </Form>
   );

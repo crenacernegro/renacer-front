@@ -1,4 +1,7 @@
+"use client";
 import { JobsForm } from "./components/jobs-form";
+
+import React, { useState } from "react";
 
 const JobsPage = () => {
   return (

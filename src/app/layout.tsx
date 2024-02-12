@@ -5,6 +5,7 @@ import { ThemeProvider } from "./theme-provider";
 import ToastProvider from "../providers/toast-provider";
 import Navbar from "./components/navbar";
 import Footer from "./components/footer";
+import "@uploadthing/react/styles.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
